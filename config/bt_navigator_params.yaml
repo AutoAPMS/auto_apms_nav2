@@ -1,0 +1,9 @@
+bt_navigator:
+  ros__parameters:
+    global_frame: map
+    robot_base_frame: base_link
+    transform_tolerance: 0.1
+    filter_duration: 0.3
+    navigators: ['auto_apms_generic_behavior']
+    auto_apms_generic_behavior:
+      plugin: "auto_apms_nav2::GenericBehaviorNavigator"

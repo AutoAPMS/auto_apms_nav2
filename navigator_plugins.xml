@@ -1,7 +1,7 @@
 <class_libraries>
 	<library path="auto_apms_navigator">
 	  <class
-	  	type="auto_apms_nav2::BehaviorTreeNavigator"
+	  	type="auto_apms_nav2::GenericBehaviorNavigator"
 	  	base_class_type="nav2_core::NavigatorBase">
 	    <description>Generic behavior tree navigator compatible with AutoAPMS</description>
 	  </class>

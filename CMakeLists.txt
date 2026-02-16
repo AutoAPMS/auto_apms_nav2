@@ -9,21 +9,15 @@ find_package(ament_cmake REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(nav2_core REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(rclcpp_action REQUIRED)
 find_package(auto_apms_behavior_tree REQUIRED)
-find_package(auto_apms_behavior_tree_core REQUIRED)
-find_package(auto_apms_interfaces REQUIRED)
 
 add_library(auto_apms_navigator SHARED
-  src/auto_apms_navigator.cpp
+  src/generic_behavior_navigator.cpp
 )
 target_link_libraries(auto_apms_navigator PRIVATE
   pluginlib::pluginlib
   rclcpp::rclcpp
-  rclcpp_action::rclcpp_action
   auto_apms_behavior_tree::auto_apms_behavior_tree
-  auto_apms_behavior_tree_core::auto_apms_behavior_tree_core
-  ${auto_apms_interfaces_TARGETS}
 )
 if(TARGET nav2_core::nav2_core)
   target_link_libraries(auto_apms_navigator PRIVATE
@@ -39,12 +33,18 @@ else()
 endif()
 
 install(
+  DIRECTORY config launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install(
   TARGETS auto_apms_navigator
   EXPORT export_${PROJECT_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
+
 install(EXPORT export_${PROJECT_NAME}
   NAMESPACE ${PROJECT_NAME}::
   DESTINATION share/${PROJECT_NAME}/cmake
