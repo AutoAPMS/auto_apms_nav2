@@ -11,8 +11,12 @@
 
   <depend>pluginlib</depend>
   <depend>nav2_core</depend>
+  <depend>nav2_behavior_tree</depend>
+  <depend>nav2_bt_navigator</depend>
   <depend>rclcpp</depend>
   <depend>auto_apms_behavior_tree</depend>
+  <depend condition="$ROS_DISTRO != jazzy">nav2_ros_common</depend>
+  <depend condition="$ROS_DISTRO == jazzy">nav2_util</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

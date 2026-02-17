@@ -1,5 +1,5 @@
 <class_libraries>
-	<library path="auto_apms_navigator">
+	<library path="auto_apms_nav2_navigator">
 	  <class
 	  	type="auto_apms_nav2::GenericBehaviorNavigator"
 	  	base_class_type="nav2_core::NavigatorBase">
