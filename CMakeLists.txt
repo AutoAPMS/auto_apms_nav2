@@ -31,7 +31,11 @@ target_link_libraries(${PROJECT_NAME} INTERFACE
 # =============================================================================
 
 add_library(${PROJECT_NAME}_navigator SHARED
-  src/generic_behavior_navigator.cpp
+  src/navigators.cpp
+)
+target_include_directories(${PROJECT_NAME}_navigator PRIVATE
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
 )
 
 # Define the ROS distro as a compile-time constant for runtime logging or feature detection
